@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Planner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>your planner</h1>
+    </header>
+
+    <div class="main-container">
+
+        <div class="planner">
+            <div class="pin-decor"></div>
+
+            <div class="date-header">
+                <span>24 октября</span>
+            </div>
+
+            <!-- счётчик задач -->
+            <div class="tasks-counter" id="tasks-counter"></div>
+
+            <!-- строка ввода -->
+            <div class="add-task-form" id="add-task-form">
+                <div class="checkbox"></div>
+                <input type="text" id="new-task-text" placeholder="Новая задача..." autocomplete="off">
+                <input type="text" id="new-task-deadline" placeholder="ДД.ММ" autocomplete="off">
+            </div>
+
+            <!-- список задач -->
+            <div class="task-list" id="task-list"></div>
+
+            <!-- кнопка «+» -->
+            <button class="add-btn" id="add-btn">+</button>
+
+            <!-- кнопка «Очистить всё» -->
+            <button class="clear-btn" id="clear-btn">Очистить всё</button>
+        </div>
+
+        <div class="motivation">
+            <h2>
+                <span class="gray-text">планируй</span><br>
+                <span class="orange-text">ярко</span>
+            </h2>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

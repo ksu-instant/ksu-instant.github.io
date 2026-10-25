@@ -1,0 +1,268 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #FFFFA4; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Шапка сайта */
+header {
+    background-color: #ffc0e1;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: #e85d26;
+    font-size: 32px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+/* Основная часть */
+.main-container {
+    display: flex;
+    flex: 1;
+}
+
+/* Левая колонка - Планер */
+.planner {
+    background-color: #ffc0e1;
+    width: 50%;
+    padding: 30px;
+    position: relative; 
+    margin: 20px 0 20px 20px;
+    border-radius: 8px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.1);
+}
+
+/* Декоративный кружок */
+.pin-decor {
+    position: absolute;
+    top: 20px;
+    left: -15px; 
+    width: 30px;
+    height: 30px;
+    background-color: #FFFFA4; 
+    border: 4px solid #e85d26;
+    border-radius: 50%;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.date-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Список задач */
+.task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Стили для задач */
+.task-item {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    color: #333;
+}
+
+.checkbox {
+    width: 18px;
+    height: 18px;
+    background-color: #e85d26;
+    border-radius: 4px;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.task-text {
+    flex-grow: 1;
+}
+
+.deadline {
+    color: #e85d26;
+    font-weight: bold;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+/* Кнопка плюс */
+.add-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #e85d26;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    transition: transform 0.2s;
+}
+
+.add-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Правая колонка - Текст */
+.motivation {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    text-align: center;
+}
+
+.motivation h2 {
+    font-size: 48px;
+    text-transform: uppercase;
+    line-height: 1.1;
+}
+
+.motivation .gray-text {
+    color: #7a7a7a;
+    font-weight: 900;
+}
+
+.motivation .orange-text {
+    color: #e85d26;
+    font-weight: 900;
+}
+
+/* АДАПТИВНОСТЬ ДЛЯ ТЕЛЕФОНОВ */
+@media (max-width: 768px) {
+    .main-container {
+        flex-direction: column;
+    }
+    .planner, .motivation {
+        width: auto;
+        margin: 15px;
+    }
+    .planner {
+        min-height: 300px;
+    }
+    .motivation h2 {
+        font-size: 32px;
+    }
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: #7a7a7a;
+    opacity: 0.7;
+}
+
+.task-item.completed .checkbox {
+    background-color: #7a7a7a;
+}
+
+.add-task-form {
+    display: none;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.4);
+    border-radius: 8px;
+    border: 2px dashed #e85d26;
+}
+
+.add-task-form.active {
+    display: flex;
+}
+
+.add-task-form input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+.add-task-form input::placeholder {
+    color: #7a7a7a;
+    font-style: italic;
+}
+
+#new-task-text {
+    flex-grow: 1;
+}
+
+#new-task-deadline {
+    width: 65px;
+    color: #e85d26;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Скобочки */
+#new-task-deadline::before {
+    content: "(";
+    color: #e85d26;
+}
+#new-task-deadline::after {
+    content: ")";
+    color: #e85d26;
+}
+
+/* Кнопка удаления задачи */
+.delete-btn {
+    background: none;
+    border: none;
+    color: #e85d26;
+    font-size: 16px;
+    cursor: pointer;
+    margin-left: 10px;
+    opacity: 0.5;
+    transition: opacity .2s;
+}
+.delete-btn:hover { opacity: 1; }
+
+/* Счётчик задач */
+.tasks-counter {
+    font-size: 13px;
+    color: #7a7a7a;
+    margin-bottom: 12px;
+    text-align: center;
+}
+
+/* Кнопка "очистить всё" */
+.clear-btn {
+    position: absolute;
+    bottom: 25px;
+    left: 20px;
+    background: transparent;
+    border: 1px solid #e85d26;
+    color: #e85d26;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all .2s;
+}
+.clear-btn:hover {
+    background: #e85d26;
+    color: white;
+}
